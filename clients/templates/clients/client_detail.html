@@ -1,0 +1,14 @@
+{% extends 'mailing_service/base.html' %}
+
+{% block title %}Детали Клиента{% endblock %}
+
+{% block content %}
+<h1>Клиент {{ client.id }}</h1>
+<p><strong>Email:</strong> {{ client.email }}</p>
+<p><strong>ФИО:</strong> {{ client.full_name }}</p>
+<p><strong>Сообщение:</strong> {{ client.comment }}</p>
+<p><strong>Владелец:</strong> {{ client.owner }}</p>
+
+<a href="{% url 'clients:clients_list' %}" class="btn btn-secondary">Назад к списку</a>
+{% endblock %}
+
