@@ -7,14 +7,13 @@ from mailing_service.tasks import send_due_mailings
 
 def start():
     scheduler = BackgroundScheduler()
-    scheduler.add_jobstore(DjangoJobStore(), 'default')
+    scheduler.add_jobstore(DjangoJobStore(), "default")
 
     scheduler.add_job(
         send_due_mailings,
         trigger=IntervalTrigger(minutes=1),
-        id='send_due_mailings',
+        id="send_due_mailings",
         max_instances=1,
-        replace_existing=True
+        replace_existing=True,
     )
     scheduler.start()
-

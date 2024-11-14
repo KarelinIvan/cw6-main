@@ -5,6 +5,5 @@ from message.models import Message
 
 @admin.register(Message)
 class MessageAdmin(admin.ModelAdmin):
-    list_display = ('topic',)
-    search_fields = ('topic',)
-
+    list_display = ("topic",)
+    search_fields = ("topic",)

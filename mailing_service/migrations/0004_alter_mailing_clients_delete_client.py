@@ -6,18 +6,21 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('clients', '0001_initial'),
-        ('mailing_service', '0003_mailing_is_active'),
+        ("clients", "0001_initial"),
+        ("mailing_service", "0003_mailing_is_active"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='mailing',
-            name='clients',
-            field=models.ManyToManyField(related_name='mailings', to='clients.client', verbose_name='Клиент сервиса'),
+            model_name="mailing",
+            name="clients",
+            field=models.ManyToManyField(
+                related_name="mailings",
+                to="clients.client",
+                verbose_name="Клиент сервиса",
+            ),
         ),
         migrations.DeleteModel(
-            name='Client',
+            name="Client",
         ),
     ]
-

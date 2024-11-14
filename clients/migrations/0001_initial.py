@@ -15,18 +15,38 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Client',
+            name="Client",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('email', models.EmailField(max_length=254, unique=True, verbose_name='Email')),
-                ('full_name', models.CharField(max_length=200, verbose_name='ФИО')),
-                ('comment', models.TextField(blank=True, null=True)),
-                ('owner', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, verbose_name='Владелец')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "email",
+                    models.EmailField(
+                        max_length=254, unique=True, verbose_name="Email"
+                    ),
+                ),
+                ("full_name", models.CharField(max_length=200, verbose_name="ФИО")),
+                ("comment", models.TextField(blank=True, null=True)),
+                (
+                    "owner",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Владелец",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Клиент сервиса',
-                'verbose_name_plural': 'Клиенты сервиса',
+                "verbose_name": "Клиент сервиса",
+                "verbose_name_plural": "Клиенты сервиса",
             },
         ),
     ]
-

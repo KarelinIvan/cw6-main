@@ -10,4 +10,3 @@ class Command(BaseCommand):
         self.stdout.write("Запуск отправки рассылок...")
         send_due_mailings()
         self.stdout.write(self.style.SUCCESS("Отправка рассылок завершена."))
-

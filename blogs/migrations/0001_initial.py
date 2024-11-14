@@ -7,24 +7,43 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='BlogPost',
+            name="BlogPost",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200, verbose_name='Заголовок')),
-                ('content', models.TextField(verbose_name='Содержимое')),
-                ('image', models.ImageField(upload_to='blogs/img/', verbose_name='Изображение')),
-                ('views', models.PositiveIntegerField(default=0, verbose_name='Просмотры')),
-                ('published_date', models.DateTimeField(auto_now_add=True, verbose_name='Дата публикации')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200, verbose_name="Заголовок")),
+                ("content", models.TextField(verbose_name="Содержимое")),
+                (
+                    "image",
+                    models.ImageField(
+                        upload_to="blogs/img/", verbose_name="Изображение"
+                    ),
+                ),
+                (
+                    "views",
+                    models.PositiveIntegerField(default=0, verbose_name="Просмотры"),
+                ),
+                (
+                    "published_date",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="Дата публикации"
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Запись в блоге',
-                'verbose_name_plural': 'Записи в блоге',
+                "verbose_name": "Запись в блоге",
+                "verbose_name_plural": "Записи в блоге",
             },
         ),
     ]
-

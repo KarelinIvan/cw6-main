@@ -12,13 +12,13 @@ from users.services import send_registrations_email, send_verification_email
 class UserCreateView(CreateView):
     model = User
     form_class = UserRegisterForm
-    template_name = 'users/register.html'
-    success_url = reverse_lazy('mailing_service:mailing_list')
+    template_name = "users/register.html"
+    success_url = reverse_lazy("mailing_service:mailing_list")
 
     def form_valid(self, form):
-        email = form.cleaned_data.get('email')
+        email = form.cleaned_data.get("email")
         if User.objects.filter(email=email).exists():
-            form.add_error('email', 'Пользователь с таким email уже существует')
+            form.add_error("email", "Пользователь с таким email уже существует")
             return self.form_invalid(form)
 
         user = form.save(commit=False)
@@ -28,12 +28,12 @@ class UserCreateView(CreateView):
         token, created = Token.objects.get_or_create(user=user)
         send_verification_email(user, token, self.request.get_host())
         send_registrations_email(user)
-        return redirect('users:verification')
+        return redirect("users:verification")
 
 
 class CustomLoginView(LoginView):
-    template_name = 'users/login.html'
-    success_url = reverse_lazy('mailing_service:mailing_list')
+    template_name = "users/login.html"
+    success_url = reverse_lazy("mailing_service:mailing_list")
     form_class = EmailAuthenticationForm
 
     def form_valid(self, form):
@@ -45,7 +45,7 @@ class CustomLoginView(LoginView):
 class LogoutView(View):
     def get(self, request):
         logout(request)
-        return redirect('users:login')
+        return redirect("users:login")
 
 
 def email_verification(request, token):
@@ -53,5 +53,4 @@ def email_verification(request, token):
     user = token_instance.user
     user.is_active = True
     user.save()
-    return redirect(reverse('users:login'))
-
+    return redirect(reverse("users:login"))
