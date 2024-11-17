@@ -31,11 +31,11 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "mailing_service",
-    "django_apscheduler",
     "users",
     "blogs",
     "clients",
     "message",
+    "django_apscheduler"
 ]
 
 MIDDLEWARE = [
