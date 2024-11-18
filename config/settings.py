@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_apscheduler",
     "rest_framework",
     "rest_framework.authtoken",
     "mailing_service",
@@ -35,7 +36,7 @@ INSTALLED_APPS = [
     "blogs",
     "clients",
     "message",
-    "django_apscheduler"
+
 ]
 
 MIDDLEWARE = [
