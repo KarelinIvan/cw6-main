@@ -6,8 +6,8 @@ class MailingServiceConfig(AppConfig):
     name = "mailing_service"
 
     def ready(self):
-        import time
+        import os
+        if os.getenv("RUN_MAIN", None) != "true":
+            return
         from .scheduler import start
-
-        time.sleep(2)
         start()
